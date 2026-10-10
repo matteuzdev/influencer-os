@@ -21,12 +21,23 @@ class VercelPathMiddleware:
     async def __call__(self, scope, receive, send):
         if scope["type"] == "http":
             headers = dict(scope.get("headers", []))
-            # Vercel envia x-matched-path com o caminho original requisitado (ex: / ou /api/personas)
-            matched_path = headers.get(b"x-matched-path") or headers.get(b"x-vercel-forwarded-path")
-            if matched_path:
-                decoded = matched_path.decode("utf-8").split("?")[0]
-                if decoded and not decoded.endswith(".py"):
-                    scope["path"] = decoded
+            
+            # Debug endpoint direto
+            if b"/debug-info" in scope.get("raw_path", b"") or b"debug" in headers.get(b"x-matched-path", b""):
+                header_dict = {k.decode("latin1", "ignore"): v.decode("latin1", "ignore") for k, v in headers.items()}
+                body = str({"headers": header_dict, "raw_scope": str(scope)}).encode("utf-8")
+                await send({"type": "http.response.start", "status": 200, "headers": [[b"content-type", b"application/json"]]})
+                await send({"type": "http.response.body", "body": body})
+                return
+
+            # Procura em todos os possíveis headers de proxy da Vercel
+            for h in [b"x-matched-path", b"x-vercel-forwarded-path", b"x-forwarded-uri", b"x-invoke-path", b"x-now-route-matches"]:
+                val = headers.get(h)
+                if val:
+                    decoded = val.decode("utf-8", "ignore").split("?")[0]
+                    if decoded and not decoded.endswith(".py") and not decoded == "/api/index":
+                        scope["path"] = decoded
+                        break
 
         await self.asgi_app(scope, receive, send)
 

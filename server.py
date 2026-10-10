@@ -405,8 +405,6 @@ async def calibrar_video_endpoint(
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/", response_class=HTMLResponse)
-@app.get("/api/index", response_class=HTMLResponse)
-@app.get("/api/index.py", response_class=HTMLResponse)
 def dashboard():
     html_content = """
 <!DOCTYPE html>
