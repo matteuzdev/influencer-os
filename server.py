@@ -54,6 +54,54 @@ app = FastAPI(title="Influencer Studio AI", version="1.0.0")
 app.mount("/static_outputs", StaticFiles(directory=str(OUTPUT_DIR)), name="outputs")
 app.mount("/static_inputs", StaticFiles(directory=str(INPUTS_DIR)), name="inputs")
 
+@app.get("/api/config/status")
+def config_status_endpoint():
+    key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+    if key and len(key) > 8:
+        masked = f"{key[:6]}...{key[-4:]}"
+        return {
+            "has_key": True,
+            "masked_key": masked,
+            "status": "connected"
+        }
+    return {
+        "has_key": False,
+        "masked_key": None,
+        "status": "missing"
+    }
+
+@app.post("/api/config/save")
+async def config_save_endpoint(api_key: str = Form(...)):
+    clean_key = api_key.strip()
+    if not clean_key or len(clean_key) < 10:
+        raise HTTPException(status_code=400, detail="Chave de API inválida ou muito curta.")
+
+    try:
+        import google.generativeai as genai
+        genai.configure(api_key=clean_key)
+        model = genai.GenerativeModel("gemini-2.5-flash")
+        model.generate_content("ping")
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Falha ao validar no Google Gemini: {str(e)[:150]}")
+
+    os.environ["GEMINI_API_KEY"] = clean_key
+    os.environ["GOOGLE_API_KEY"] = clean_key
+    
+    if not IS_VERCEL:
+        try:
+            env_file = BASE_DIR / ".env"
+            with open(env_file, "w", encoding="utf-8") as f:
+                f.write(f"GEMINI_API_KEY={clean_key}\nGOOGLE_API_KEY={clean_key}\n")
+        except Exception:
+            pass
+
+    masked = f"{clean_key[:6]}...{clean_key[-4:]}"
+    return {
+        "status": "success",
+        "message": "Chave Gemini validada e conectada com sucesso!",
+        "masked_key": masked
+    }
+
 @app.get("/api/personas")
 def get_personas():
     personas = []
@@ -438,6 +486,15 @@ def dashboard():
     </div>
     
     <div class="flex items-center space-x-3">
+      <!-- Botão Configuração da Chave Gemini -->
+      <button type="button" onclick="toggleModalConfig()" id="btnStatusKey" class="flex items-center gap-1.5 text-xs text-gray-300 bg-gray-800/80 hover:bg-gray-800 border border-gray-700 px-3 py-2 rounded-lg transition font-medium cursor-pointer shadow-sm">
+        <span id="dotStatusKey" class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span id="textStatusKey">Gemini Conectado</span>
+        <span class="text-xs text-gray-400">⚙️</span>
+      </button>
+
+      <div class="h-4 w-px bg-gray-800"></div>
+
       <a href="https://flow.google.com/project/8f2818a1-af39-4697-ad1f-c892ee61f3c2/collection/74c8281d-2e25-4983-8576-194c7dd9e74c" target="_blank" class="text-xs bg-indigo-600/20 text-indigo-300 border border-indigo-500/30 hover:bg-indigo-600/30 px-3 py-2 rounded-lg transition flex items-center gap-1.5 font-medium">
         <span>Abrir Coleção da Synthia no Flow ↗</span>
       </a>
@@ -448,6 +505,56 @@ def dashboard():
       </span>
     </div>
   </header>
+
+  <!-- Modal de Configuração de Chave Gemini -->
+  <div id="modalConfigKey" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-[#131926] border border-gray-800 w-full max-w-md rounded-2xl p-6 shadow-2xl relative">
+      <button type="button" onclick="toggleModalConfig()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-base font-bold transition">✕</button>
+      
+      <div class="flex items-center space-x-3 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-indigo-600 flex items-center justify-center text-lg shadow-md text-white font-bold">
+          🔑
+        </div>
+        <div>
+          <h3 class="font-bold text-white text-sm">Chave de API do Google Gemini</h3>
+          <p class="text-xs text-gray-400">Motores MIRR0R™ e HUMAN ENGINE™</p>
+        </div>
+      </div>
+
+      <div class="mb-4 p-3 bg-[#0b0f17] border border-gray-800 rounded-xl flex items-center justify-between text-xs">
+        <span class="text-gray-400">Status da Chave:</span>
+        <span id="badgeKeyStatus" class="font-mono text-emerald-400 font-bold">Verificando...</span>
+      </div>
+
+      <form onsubmit="salvarChaveApi(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1.5">Nova Chave (GEMINI_API_KEY)</label>
+          <div class="relative">
+            <input type="password" id="inputApiKey" placeholder="Cole sua chave AIzaSy..." required
+                   class="w-full bg-[#0b0f17] border border-gray-800 focus:border-indigo-500 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-gray-600 focus:outline-none transition pr-10 font-mono">
+            <button type="button" onclick="toggleMostrarKey()" class="absolute right-3 top-2.5 text-xs text-gray-400 hover:text-white">
+              👁️
+            </button>
+          </div>
+          <p class="text-[11px] text-gray-500 mt-1.5 leading-relaxed">
+            Pegue sua chave gratuita no <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-indigo-400 underline hover:text-indigo-300">Google AI Studio ↗</a>
+          </p>
+        </div>
+
+        <div id="msgKeyFeedback" class="hidden text-xs p-2.5 rounded-lg border"></div>
+
+        <div class="flex items-center gap-2 pt-2">
+          <button type="button" onclick="toggleModalConfig()" class="w-1/3 bg-gray-800 hover:bg-gray-700 text-gray-300 font-bold text-xs py-2.5 px-4 rounded-xl transition">
+            Fechar
+          </button>
+          <button type="submit" id="btnSalvarKey" class="w-2/3 bg-gradient-to-r from-indigo-600 to-rose-600 hover:opacity-95 text-white font-bold text-xs py-2.5 px-4 rounded-xl shadow-lg transition flex items-center justify-center gap-1.5">
+            <span>💾</span>
+            <span id="btnTextSalvarKey">Salvar & Validar Chave</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <!-- Navegação por Etapas do Processo -->
   <div class="bg-[#0f1420] border-b border-gray-800 px-6">
@@ -1867,7 +1974,103 @@ def dashboard():
       }
     }
 
+    // ============================================
+    // CONFIGURAÇÃO DA CHAVE GEMINI DIRETAMENTE NA UI
+    // ============================================
+    function toggleModalConfig() {
+      const modal = document.getElementById('modalConfigKey');
+      if (modal) {
+        modal.classList.toggle('hidden');
+      }
+    }
+
+    function toggleMostrarKey() {
+      const inp = document.getElementById('inputApiKey');
+      if (inp) {
+        inp.type = inp.type === 'password' ? 'text' : 'password';
+      }
+    }
+
+    async function verificarStatusKey() {
+      try {
+        const res = await fetch('/api/config/status');
+        const data = await res.json();
+        const btn = document.getElementById('btnStatusKey');
+        const dot = document.getElementById('dotStatusKey');
+        const txt = document.getElementById('textStatusKey');
+        const badge = document.getElementById('badgeKeyStatus');
+
+        if (data.has_key) {
+          if (dot) dot.className = 'w-2 h-2 rounded-full bg-emerald-400 animate-pulse';
+          if (txt) txt.innerText = `Gemini Ativo (${data.masked_key})`;
+          if (badge) {
+            badge.innerText = `Conectado (${data.masked_key})`;
+            badge.className = 'font-mono text-emerald-400 font-bold';
+          }
+          if (btn) btn.className = 'flex items-center gap-1.5 text-xs text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 px-3 py-2 rounded-lg transition font-medium cursor-pointer shadow-sm';
+        } else {
+          if (dot) dot.className = 'w-2 h-2 rounded-full bg-amber-400 animate-ping';
+          if (txt) txt.innerText = 'Configurar Chave Gemini';
+          if (badge) {
+            badge.innerText = 'Nenhuma chave configurada';
+            badge.className = 'font-mono text-amber-400 font-bold';
+          }
+          if (btn) btn.className = 'flex items-center gap-1.5 text-xs text-amber-300 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/40 px-3 py-2 rounded-lg transition font-medium cursor-pointer shadow-sm animate-pulse';
+        }
+      } catch (err) {
+        console.error('Erro ao verificar status da chave:', err);
+      }
+    }
+
+    async function salvarChaveApi(e) {
+      e.preventDefault();
+      const keyVal = document.getElementById('inputApiKey').value.trim();
+      const btn = document.getElementById('btnSalvarKey');
+      const btnText = document.getElementById('btnTextSalvarKey');
+      const feedback = document.getElementById('msgKeyFeedback');
+
+      if (!keyVal) return;
+
+      btn.disabled = true;
+      btnText.innerText = 'Validando no Google...';
+      feedback.classList.add('hidden');
+
+      const formData = new FormData();
+      formData.append('api_key', keyVal);
+
+      try {
+        const res = await fetch('/api/config/save', { method: 'POST', body: formData });
+        const data = await res.json();
+
+        if (data.status === 'success') {
+          feedback.className = 'text-xs p-2.5 rounded-lg border bg-emerald-950/60 border-emerald-600/50 text-emerald-300';
+          feedback.innerHTML = `✓ ${data.message} (${data.masked_key})`;
+          feedback.classList.remove('hidden');
+
+          document.getElementById('inputApiKey').value = '';
+          verificarStatusKey();
+
+          setTimeout(() => {
+            toggleModalConfig();
+            feedback.classList.add('hidden');
+          }, 1800);
+        } else {
+          feedback.className = 'text-xs p-2.5 rounded-lg border bg-rose-950/60 border-rose-600/50 text-rose-300';
+          feedback.innerText = `Erro: ${data.detail || JSON.stringify(data)}`;
+          feedback.classList.remove('hidden');
+        }
+      } catch (err) {
+        feedback.className = 'text-xs p-2.5 rounded-lg border bg-rose-950/60 border-rose-600/50 text-rose-300';
+        feedback.innerText = `Erro de conexão: ${err}`;
+        feedback.classList.remove('hidden');
+      } finally {
+        btn.disabled = false;
+        btnText.innerText = 'Salvar & Validar Chave';
+      }
+    }
+
     // Inicialização
+    verificarStatusKey();
     atualizarDropdownPersonas();
     verificarVideoRecente();
     carregarUltimoCalibrado();
