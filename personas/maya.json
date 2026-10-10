@@ -1,0 +1,112 @@
+{
+  "id": "maya",
+  "name": "Maya",
+  "archetype": "Influenciadora Digital IA // Moda Casual & Streetwear",
+  "concept": "Persona virtual autônoma criada para o nicho de Moda Casual & Streetwear, com fidelidade visual e Face Lock registrado.",
+  "commercial_profile": {
+    "primary_niche": "Moda Casual & Streetwear",
+    "target_clients": "Marcas, lojas e marcas parceiras de Moda Casual & Streetwear",
+    "positioning": "Embaixadora virtual hiper-realista para campanhas de Moda Casual & Streetwear, provadores e vídeos falados",
+    "collection_url": "",
+    "deliverables": [
+      "Provador Virtual (OOTD) em proporção 9:16",
+      "Demonstração Técnica de Produto 1:1",
+      "Vídeos de Avaliação UGC Falados (HUMAN ENGINE™ em PT-BR)",
+      "Motion Transfer de Ação Real (RunningHub ComfyUI)"
+    ]
+  },
+  "ground_truth_image": "C:\\Users\\hiant\\Documents\\CODE\\influencer_pipeline\\inputs\\ref_persona_maya_20261009_124844.png",
+  "face_board_prompt": "A 16:9 high-resolution photographic multi-panel character reference board and face collage showcasing the EXACT SAME woman (Maya, Apparent visual age bracket: 18-25 years old.) from 9 distinct camera angles and candid facial expressions: Panel 1 centered front portrait smiling softly; Panel 2 three-quarter left angle candid laughing; Panel 3 three-quarter right angle looking thoughtfully; Panel 4 clean side profile showcasing jawline and nose silhouette; Panel 5 looking down candidly with relaxed eyelids; Panel 6 macro extreme close-up on natural skin texture, visible soft pores, and dark expressive eyes; Panel 7 speaking candidly with parted lips; Panel 8 upper bust framing showing hair drape; Panel 9 confident direct eye contact. LOCKED TRAITS ACROSS ALL PANELS: Light blonde, almost platinum hue, with natural root growth not explicitly visible due to light distribution. hair in Long, flowing hair extending over shoulders and chest, parted near the center. The hair appears mostly straight with subtle natural waves and some wind-blown strands around the face and shoulders, indicating movement or a natural, unfussed style., identical facial bone structure, Smooth matte finish with zero visible cosmetics, displaying natural skin texture and subtle natural pink lip coloration., and wearing brinco de argola dourada. Seamless neutral off-white studio background, uniform diffuse daylight illumination, 100% facial and physical identity consistency across every single panel. Authentic unedited camera capture, zero artificial airbrushing, photorealistic fidelity.",
+  "dna": {
+    "age": "Apparent visual age bracket: 18-25 years old.",
+    "face_structure": "Young woman captured from the mid-chest upwards, facing directly towards the camera. Her head is tilted slightly to the left, and her shoulders are mostly square to the frame. Her posture is relaxed and upright, with no hands visible within the shot.",
+    "skin_texture": "Smooth matte finish with zero visible cosmetics, displaying natural skin texture and subtle natural pink lip coloration.",
+    "eyes": "dark expressive eyes, candid direct gaze with natural light reflection",
+    "hair": {
+      "color": "Light blonde, almost platinum hue, with natural root growth not explicitly visible due to light distribution.",
+      "style": "Long, flowing hair extending over shoulders and chest, parted near the center. The hair appears mostly straight with subtle natural waves and some wind-blown strands around the face and shoulders, indicating movement or a natural, unfussed style.",
+      "texture": "natural authentic strands with realistic physics"
+    },
+    "signature_accessories": {
+      "jewelry": "brinco de argola dourada"
+    },
+    "photography_dna": {
+      "camera": "Clean modern smartphone camera video capture, characterized by soft natural contrast and subtle digital noise in darker areas.",
+      "texture": "Smooth overall image texture with sharp focus on the subject. The background is softly blurred, exhibiting subtle sensor grain in out-of-focus darker tones. Lighting is diffuse and natural, contributing to soft contrast."
+    }
+  },
+  "raw_mirror_dna": {
+    "subject": {
+      "description": "Young woman captured from the mid-chest upwards, facing directly towards the camera. Her head is tilted slightly to the left, and her shoulders are mostly square to the frame. Her posture is relaxed and upright, with no hands visible within the shot.",
+      "mirror_rules": "No mirror or window reflections behaving as mirrors are present in the frame.",
+      "age": "Apparent visual age bracket: 18-25 years old.",
+      "expression": "Lower facial expression shows lips slightly parted in a soft, natural curve, with no visible jaw tension. Upper facial expression is neutral, with a direct, steady gaze into the camera lens. Eyebrows are naturally arched.",
+      "hair": {
+        "color": "Light blonde, almost platinum hue, with natural root growth not explicitly visible due to light distribution.",
+        "style": "Long, flowing hair extending over shoulders and chest, parted near the center. The hair appears mostly straight with subtle natural waves and some wind-blown strands around the face and shoulders, indicating movement or a natural, unfussed style."
+      },
+      "clothing": {
+        "top": {
+          "type": "Long-sleeved crew-neck fitted top.",
+          "color": "Off-white with a subtle warm undertone, appearing solid and consistent.",
+          "details": "Smooth, likely a soft jersey knit or similar stretchable fabric, form-fitting across the chest and torso. The crew neck sits close to the base of the throat. Subtle horizontal fabric creasing is visible across the abdomen and chest, indicating the fabric's drape and elasticity."
+        },
+        "bottom": {
+          "type": "Not visible in frame.",
+          "color": "Not visible in frame.",
+          "details": "Not visible in frame."
+        }
+      },
+      "face": {
+        "preserve_original": true,
+        "makeup": "Smooth matte finish with zero visible cosmetics, displaying natural skin texture and subtle natural pink lip coloration."
+      }
+    },
+    "accessories": {
+      "headwear": {
+        "type": "None",
+        "details": "None"
+      },
+      "jewelry": {
+        "earrings": "Not visible due to hair coverage and angle.",
+        "necklace": "A delicate beaded necklace composed of small, uniformly round faux pearls with a soft, iridescent luster. A central metallic gold-toned pendant, resembling an orb within a ring (possibly a Vivienne Westwood Saturn orb motif), hangs at the clavicle.",
+        "wrist": "None visible.",
+        "rings": "No rings visible on fingers."
+      },
+      "device": {
+        "type": "None held by the subject.",
+        "details": "N/A"
+      }
+    },
+    "photography": {
+      "camera_style": "Clean modern smartphone camera video capture, characterized by soft natural contrast and subtle digital noise in darker areas.",
+      "angle": "Slightly low angle, with the camera positioned slightly below the subject's eye level, pointing gently upwards towards the face and torso.",
+      "shot_type": "Medium shot, framed from approximately mid-chest to just above the top of the head, presented as a candid vertical video portrait.",
+      "aspect_ratio": "vertical frame, 9:16.",
+      "texture": "Smooth overall image texture with sharp focus on the subject. The background is softly blurred, exhibiting subtle sensor grain in out-of-focus darker tones. Lighting is diffuse and natural, contributing to soft contrast."
+    },
+    "background": {
+      "setting": "Indistinct, softly lit indoor environment, likely a domestic room such as a bedroom or living space.",
+      "wall_color": "Predominantly light, off-white to very light beige/cream tones, with soft, even illumination.",
+      "elements": [
+        "Subtle, out-of-focus hint of a white, sheer curtain or fabric to the right.",
+        "A blurry, white, multi-element decorative light fixture or chandelier component is partially visible on the upper left, obscured by hair.",
+        "A faint, soft linear transition indicating a wall-to-ceiling junction in the upper right quadrant.",
+        "Diffuse ambient light source, possibly a window, casting soft illumination from the right side of the frame.",
+        "Minimalist and unfurnished appearance of visible background surfaces."
+      ],
+      "atmosphere": "Calm, casual, and enclosed domestic atmosphere under soft ambient light.",
+      "lighting": "Soft, diffuse ambient lighting originates primarily from the right side, creating subtle highlights on the subject's hair and face. The illumination is even, preventing harsh shadows and contributing to a gentle falloff."
+    },
+    "weather": {
+      "condition": "Indoor ambient light, suggesting either an overcast day outside or a well-lit interior. No explicit outdoor weather elements are visible.",
+      "details": "Soft, diffuse ambient light through an unseen window or large interior light source; no direct sunlight or artificial light hot spots."
+    },
+    "setting_specifics": {
+      "category": "Generic domestic interior with light-colored walls.",
+      "materials": "Mainly painted drywall surfaces in the background, with hints of sheer fabric for window dressing and metallic/glass elements on a decorative light fixture."
+    },
+    "master_prompt_en": "A candid vertical video portrait of a young woman, 18-25 years old, framed from mid-chest to just above the head. She faces the camera directly with her head slightly tilted to the left, a neutral expression, and soft, naturally parted lips. Her long, light platinum blonde hair flows over her shoulders, appearing slightly wind-blown. She wears a form-fitting, off-white, long-sleeved crew-neck top made of a smooth jersey knit, with subtle fabric creasing visible across the torso. A delicate pearl necklace with a central gold-toned Vivienne Westwood Saturn orb pendant rests at her clavicle. Her face exhibits a smooth matte skin texture with zero visible cosmetics. The soft, diffuse ambient lighting emanates from the right, casting gentle highlights without harsh shadows. The background is an indistinct, softly blurred domestic interior with light off-white walls, a subtle sheer curtain on the right, and a blurry decorative light fixture on the left, capturing a calm, casual atmosphere with a clean modern smartphone camera aesthetic."
+  },
+  "created_at": "2026-10-09"
+}

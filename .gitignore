@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+.venv/
+venv/
+env/
+
+# Binaries, Videos, Raw & Outputs
+outputs/
+inputs/
+*.mp4
+*.m4v
+*.avi
+*.mov
+
+# Vercel
+.vercel/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

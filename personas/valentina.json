@@ -1,0 +1,114 @@
+{
+  "id": "valentina",
+  "name": "Valentina",
+  "archetype": "Influenciadora Digital IA // Jóias",
+  "concept": "Persona virtual autônoma criada para o nicho de Jóias, com fidelidade visual e Face Lock registrado.",
+  "commercial_profile": {
+    "primary_niche": "Jóias",
+    "target_clients": "Marcas, lojas e marcas parceiras de Jóias",
+    "positioning": "Embaixadora virtual hiper-realista para campanhas de Jóias, provadores e vídeos falados",
+    "collection_url": "",
+    "deliverables": [
+      "Provador Virtual (OOTD) em proporção 9:16",
+      "Demonstração Técnica de Produto 1:1",
+      "Vídeos de Avaliação UGC Falados (HUMAN ENGINE™ em PT-BR)",
+      "Motion Transfer de Ação Real (RunningHub ComfyUI)"
+    ]
+  },
+  "ground_truth_image": "C:\\Users\\hiant\\Documents\\CODE\\influencer_pipeline\\inputs\\ref_persona_valentina_20261009_133757.jpg",
+  "face_board_prompt": "A 16:9 high-resolution photographic multi-panel character reference board and face collage showcasing the EXACT SAME woman (Valentina, young adult, 18-24 years old.) from 9 distinct camera angles and candid facial expressions: Panel 1 centered front portrait smiling softly; Panel 2 three-quarter left angle candid laughing; Panel 3 three-quarter right angle looking thoughtfully; Panel 4 clean side profile showcasing jawline and nose silhouette; Panel 5 looking down candidly with relaxed eyelids; Panel 6 macro extreme close-up on natural skin texture, visible soft pores, and dark expressive eyes; Panel 7 speaking candidly with parted lips; Panel 8 upper bust framing showing hair drape; Panel 9 confident direct eye contact. LOCKED TRAITS ACROSS ALL PANELS: Rich, dark espresso brown with warm auburn and reddish-brown highlights catching the light, particularly in the mid-lengths and ends. hair in Long, layered, and loosely wavy hair, parted slightly off-center to the left. Face-framing tendrils sweep across the forehead and temples. Sections of hair are loosely pulled back from the ears, revealing the left ear entirely. Significant natural volume is visible around the crown and sides., identical facial bone structure, Natural-looking application: subtle brow definition, extended and volumized eyelashes with mascara, soft rosy blush on the apples of the cheeks blending towards the temples, and a high-shine clear or light pink lip gloss. A tiny, reflective silver ball stud piercing is visible on the right nostril. Skin texture is smooth with visible pores and natural freckles., and wearing piercing no nariz dourado. Seamless neutral off-white studio background, uniform diffuse daylight illumination, 100% facial and physical identity consistency across every single panel. Authentic unedited camera capture, zero artificial airbrushing, photorealistic fidelity.",
+  "dna": {
+    "age": "young adult, 18-24 years old.",
+    "face_structure": "Subject is seated on the floor, leaning forward slightly with the upper torso angled gently to the right. The head is tilted approximately 5 degrees to the left, chin slightly lowered, with direct eye contact to the camera. The right arm is bent, resting with the forearm visible from mid-bicep down; the left arm is entirely out of frame.",
+    "skin_texture": "Natural-looking application: subtle brow definition, extended and volumized eyelashes with mascara, soft rosy blush on the apples of the cheeks blending towards the temples, and a high-shine clear or light pink lip gloss. A tiny, reflective silver ball stud piercing is visible on the right nostril. Skin texture is smooth with visible pores and natural freckles.",
+    "eyes": "dark expressive eyes, candid direct gaze with natural light reflection",
+    "hair": {
+      "color": "Rich, dark espresso brown with warm auburn and reddish-brown highlights catching the light, particularly in the mid-lengths and ends.",
+      "style": "Long, layered, and loosely wavy hair, parted slightly off-center to the left. Face-framing tendrils sweep across the forehead and temples. Sections of hair are loosely pulled back from the ears, revealing the left ear entirely. Significant natural volume is visible around the crown and sides.",
+      "texture": "natural authentic strands with realistic physics"
+    },
+    "signature_accessories": {
+      "jewelry": "piercing no nariz dourado"
+    },
+    "photography_dna": {
+      "camera": "Clean modern smartphone camera photo with soft natural contrast and a slightly warm color balance. Minimal sensor grain is visible in darker, underexposed areas.",
+      "texture": "Soft, diffuse ambient lighting creates gentle, volumetric shadows and subtle specular highlights on skin and lips. Skin texture displays fine pores and natural freckles. Clothing fabric details are softly rendered. Very subtle sensor grain is discernible in the deeper shadow areas, consistent with a modern smartphone camera."
+    }
+  },
+  "raw_mirror_dna": {
+    "subject": {
+      "description": "Subject is seated on the floor, leaning forward slightly with the upper torso angled gently to the right. The head is tilted approximately 5 degrees to the left, chin slightly lowered, with direct eye contact to the camera. The right arm is bent, resting with the forearm visible from mid-bicep down; the left arm is entirely out of frame.",
+      "mirror_rules": "No mirror or glass reflections directly impacting subject orientation or text readability. The mirror in the background reflects a dim, soft interior scene without specific details or reversed artifacts.",
+      "age": "young adult, 18-24 years old.",
+      "expression": "Gentle, closed-mouth smile with slight elevation of the cheeks creating subtle dimples. The lips are glossy and slightly parted, revealing natural inner lip texture. Eyes are wide and directly engaged with the viewer. Eyebrows are naturally defined and slightly raised in a relaxed manner. Multiple small, distinct freckles are scattered across the bridge of the nose and upper cheeks.",
+      "hair": {
+        "color": "Rich, dark espresso brown with warm auburn and reddish-brown highlights catching the light, particularly in the mid-lengths and ends.",
+        "style": "Long, layered, and loosely wavy hair, parted slightly off-center to the left. Face-framing tendrils sweep across the forehead and temples. Sections of hair are loosely pulled back from the ears, revealing the left ear entirely. Significant natural volume is visible around the crown and sides."
+      },
+      "clothing": {
+        "top": {
+          "type": "Lightweight ribbed knit spaghetti strap camisole or tank top.",
+          "color": "Muted cream-white base fabric with a faded, almost greyish-blue small floral print.",
+          "details": "Finely ribbed knit texture, soft and drapes easily over the form. Delicate, scalloped lace trim along the V-neckline. Thin, unadorned spaghetti straps are visible over the shoulders. The fit is close to the body, revealing the décolletage."
+        },
+        "bottom": {
+          "type": "Casual mid-wash blue denim jeans.",
+          "color": "Medium indigo blue with subtle, soft fading on the thighs.",
+          "details": "Classic denim twill weave. Visible creases and natural folds around the knee and upper thigh of the subject's right leg, indicating a relaxed, comfortable fit."
+        }
+      },
+      "face": {
+        "preserve_original": true,
+        "makeup": "Natural-looking application: subtle brow definition, extended and volumized eyelashes with mascara, soft rosy blush on the apples of the cheeks blending towards the temples, and a high-shine clear or light pink lip gloss. A tiny, reflective silver ball stud piercing is visible on the right nostril. Skin texture is smooth with visible pores and natural freckles."
+      }
+    },
+    "accessories": {
+      "headwear": {
+        "type": "None",
+        "details": "None"
+      },
+      "jewelry": {
+        "earrings": "A single, thin silver-toned hoop earring is visible in the left earlobe. Jewelry in the right earlobe is not visible under the hair.",
+        "necklace": "A delicate, thin silver-toned chain necklace with a small, circular pendant featuring a single, clear, faceted stone (possibly cubic zirconia or diamond simulant) that reflects light brightly.",
+        "wrist": "None",
+        "rings": "No rings visible on fingers"
+      },
+      "device": {
+        "type": "None",
+        "details": "None"
+      }
+    },
+    "photography": {
+      "camera_style": "Clean modern smartphone camera photo with soft natural contrast and a slightly warm color balance. Minimal sensor grain is visible in darker, underexposed areas.",
+      "angle": "Slightly elevated camera angle, positioned just above the subject's eye level, looking down at the subject's face and upper torso. The lens axis is directed towards the upper chest.",
+      "shot_type": "Close-up portrait framed from the mid-torso to just above the head, capturing the full face and shoulders. Candid vertical orientation.",
+      "aspect_ratio": "vertical frame, 4:5",
+      "texture": "Soft, diffuse ambient lighting creates gentle, volumetric shadows and subtle specular highlights on skin and lips. Skin texture displays fine pores and natural freckles. Clothing fabric details are softly rendered. Very subtle sensor grain is discernible in the deeper shadow areas, consistent with a modern smartphone camera."
+    },
+    "background": {
+      "setting": "A cozy, personal bedroom interior, featuring a bed, a wall collage, and a tall mirror, suggesting an intimate, lived-in space.",
+      "wall_color": "Light, warm off-white or creamy beige wall paint.",
+      "elements": [
+        "White bed duvet and pillows, rumpled and casually arranged.",
+        "Vibrant lime-green plush frog toy resting on the bed.",
+        "Extensive collage of various small photographs, postcards, and art prints, casually taped to the wall.",
+        "Artificial dark green ivy vine draped horizontally along the upper edge of the wall collage.",
+        "Tall, dark-framed mirror reflecting a dimly lit corner of the room with an obscured plant and shelves.",
+        "A dark brown or black door frame with a visible matching doorknob.",
+        "A patterned, muted blue and beige rug with geometric motifs on the floor in the foreground."
+      ],
+      "atmosphere": "Relaxed, personal, and lived-in. Soft, inviting light.",
+      "lighting": "Soft, diffuse ambient light primarily from the left side of the frame (viewer's left), suggesting a window source not directly visible. This light creates gentle falloff, illuminating the subject's face and foreground, while the background elements appear slightly dimmer and softer, with subtle shadow play."
+    },
+    "weather": {
+      "condition": "Indoor ambient light, likely from natural daylight filtering through a window, characterized by its soft, diffuse quality, suggesting an overcast day or indirect sunlight.",
+      "details": "Soft, even illumination without harsh shadows, indicating a bright but indirect natural light source, creating a gentle and consistent light environment indoors."
+    },
+    "setting_specifics": {
+      "category": "Eclectic and personal bedroom decor, reflecting a youthful aesthetic with a mix of comfort items and sentimental wall art.",
+      "materials": "Soft cotton bedding, paper photo prints, synthetic plush fabric for the toy, natural hair fibers, reflective glass mirror, painted wood door frame, woven textile rug, plastic artificial ivy."
+    },
+    "master_prompt_en": "A young adult woman, 18-24 years old, is seated on the floor, leaning forward, head tilted slightly, making direct eye contact with a gentle closed-mouth smile, soft dimples, and bright, engaged eyes. Her long, layered, wavy dark espresso brown hair with auburn highlights frames her face, with tendrils sweeping across her forehead. She wears a lightweight, cream-white ribbed knit spaghetti strap camisole with a faded greyish-blue floral print and delicate lace trim, paired with casual mid-wash blue denim jeans. Visible are small natural freckles across her nose and cheeks, soft rosy blush, extended eyelashes, glossy pink lips, and a tiny silver nostril piercing. A thin silver hoop earring adorns her left ear, and a delicate silver chain necklace with a small, faceted clear pendant rests on her chest. The candid, vertical portrait is captured with a modern smartphone camera from a slightly elevated angle, creating soft natural contrast and subtle sensor grain in shadows. The background is a cozy, personal bedroom interior featuring a white rumpled bed, a lime-green frog plush toy, a wall collage of small photos, an artificial ivy vine, and a tall dark-framed mirror reflecting a dim corner. Soft, diffuse ambient daylight from an unseen window to the left illuminates the scene evenly, creating a relaxed and intimate atmosphere."
+  },
+  "created_at": "2026-10-09"
+}

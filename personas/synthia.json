@@ -1,0 +1,40 @@
+{
+  "id": "synthia",
+  "name": "Synthia",
+  "archetype": "Humanoide / Synthetic Influencer de Alto Padrão",
+  "concept": "Nome feminino humano (fonética similar a Cíntia), com raiz sutil em 'Synthetic' (Synth). Transmite elegância humana com sofisticação de nova geração.",
+  "commercial_profile": {
+    "primary_niche": "Moda Feminina Elegante, Joias Finas & Skincare / Cosméticos",
+    "target_clients": "Boutiques femininas, e-commerces de roupas, marcas de joias/prata 925, marcas de cosméticos e TikTok Shop",
+    "positioning": "Embaixadora digital hiper-realista para marcas que precisam de vídeos e fotos de provador sem custo de estúdio ou modelos físicas",
+    "collection_url": "https://flow.google.com/project/8f2818a1-af39-4697-ad1f-c892ee61f3c2/collection/74c8281d-2e25-4983-8576-194c7dd9e74c",
+    "deliverables": [
+      "Provador Virtual (OOTD) em proporção 9:16",
+      "Demonstração Técnica de Produto 1:1 (caimento, costuras, tecido)",
+      "Vídeos de Avaliação UGC Falados (HUMAN ENGINE™ com fala natural em PT-BR)",
+      "Motion Transfer de Desfile / Provador (RunningHub ComfyUI)"
+    ]
+  },
+  "ground_truth_image": "outputs/flow_generated_image.png",
+  "face_board_collage": "outputs/synthia_face_board_collage.jpg",
+  "dna": {
+    "age": "early twenties (20-22 anos)",
+    "ethnicity": "fair skin, subtle natural warm undertones",
+    "face_structure": "oval facial structure, delicate jawline, well-defined dark natural brows, small slightly upturned nose, naturally full soft pink lips slightly parted in a relaxed, candid expression",
+    "skin_texture": "unedited natural skin texture, visible soft pores, natural subtle dermal glow, zero artificial airbrushing, minimal natural cosmetics",
+    "eyes": "dark expressive eyes, candid direct gaze into the lens, confident and relaxed",
+    "hair": {
+      "color": "vibrant natural copper-red and warm ginger-auburn with realistic undertones",
+      "style": "long layered cut falling over both shoulders, natural hair strands with delicate flyaways framing the face",
+      "texture": "natural healthy shine, non-greasy, authentic human hair physics"
+    },
+    "signature_accessories": {
+      "jewelry": "delicate pearl choker necklace with a central silver celestial orb-and-ring pendant (estilo Vivienne Westwood)"
+    },
+    "photography_dna": {
+      "camera": "shot on modern smartphone front camera (24mm equivalent), candid unedited aesthetic",
+      "texture": "subtle mobile sensor noise, natural daylight falloff, no cinematic fantasy bloom"
+    }
+  },
+  "created_at": "2026-10-09"
+}
